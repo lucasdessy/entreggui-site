@@ -725,6 +725,42 @@ iframe {
     height: 95vh;
 }
 
+.menu {
+    position: absolute;
+    font-size: 0.5em;
+    height: 2vmax;
+    width: 50%;
+    margin: -150px 0 0 -75px;
+    padding: 50px;
+    padding-top: 150px;
+    background: #bbc0ff;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
+    transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+.menu li {
+    padding: 10px 0;
+    font-size: 22px;
+}
+
+
+/*
+ * And let's slide it in from the left
+ */
+
+.menuToggle input:checked~ul {
+    -webkit-transform: none;
+    transform: none;
+}
+
 .login-center {
     padding-top: 20vh;
     padding-bottom: 20vh;
@@ -839,39 +875,3 @@ iframe {
  * Make this absolute positioned
  * at the top left of the screen
  */
-
-.menu {
-    position: absolute;
-    font-size: 0.5em;
-    height: 2vmax;
-    width: 50%;
-    margin: -150px 0 0 -75px;
-    padding: 50px;
-    padding-top: 150px;
-    background: #bbc0ff;
-    list-style-type: none;
-    -webkit-font-smoothing: antialiased;
-    /* to stop flickering of text in safari */
-    -webkit-transform-origin: 0% 0%;
-    transform-origin: 0% 0%;
-    -webkit-transform: translate(-100%, 0);
-    transform: translate(-100%, 0);
-    transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-}
-
-.menu li {
-    padding: 10px 0;
-    font-size: 22px;
-}
-
-
-/*
- * And let's slide it in from the left
- */
-
-.menuToggle input:checked~ul {
-    -webkit-transform: none;
-    transform: none;
-}
