@@ -48,17 +48,6 @@ if (!isset($_GET['usuario'])) {
 </head>
 
 <body>
-    <?php
-    if ($_GET['usuario'] == 0) {
-        $usu = 0;
-        echo '
-        <script>
-            usuario.checked = "checked";
-        </script>
-        ';
-    }
-
-    ?>
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-l-15 p-r-15 p-t-25 p-b-10 scroll">
@@ -104,6 +93,14 @@ if (!isset($_GET['usuario'])) {
                     </span>
 
                     <?php
+                    if ($_GET['usuario'] == 0) {
+                        $usu = 0;
+                        echo '
+                            <script>
+                                usuario.checked = "checked";
+                            </script>
+                            ';
+                    }
                     if ($_GET['usuario'] == 1) {
                         $usu = 1;
                         include("cadentregadores.php");
