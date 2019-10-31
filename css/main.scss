@@ -842,11 +842,12 @@ iframe {
 
 #menu {
     position: absolute;
-    width: 300px;
+    font-size: 0.5em;
+    height: 100%;
+    width: 50%;
     margin: -150px 0 0 -75px;
     padding: 50px;
     padding-top: 150px;
-    height: 95vh;
     background: #bbc0ff;
     list-style-type: none;
     -webkit-font-smoothing: antialiased;
