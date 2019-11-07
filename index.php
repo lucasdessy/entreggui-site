@@ -45,9 +45,6 @@
   <div class="limiter">
     <div class="container-login100">
       <div class="wrap-login100 p-l-15 p-r-15 p-t-25 p-b-10 scroll login-center">
-        <?php
-        include("menu-hamburger.html");
-        ?>
         <span class="login100-form-title p-b-0">
           <?php
           echo "Bem vido $logadonome";
