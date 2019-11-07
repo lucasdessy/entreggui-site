@@ -66,8 +66,15 @@ text-align: justify;
     box-sizing: border-box;
 }
 
+html {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
 body {
-    //height: 100%;
+    height: 100%;
+    width: 100%;
     font-family: Poppins-Regular, sans-serif;
     // background: #3B3177FF;
     // background: -webkit-linear-gradient(bottom, #FFFFFF);
@@ -267,7 +274,7 @@ iframe {
 
 .container-login100 {
     width: 100%;
-   min-height: 100vh;
+    min-height: 100vh;
     display: -webkit-box;
     display: -webkit-flex;
     display: -moz-box;
@@ -310,7 +317,7 @@ iframe {
     width: 450px;
     background: #fff;
     border-radius: 3px;
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 
@@ -326,7 +333,7 @@ iframe {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 .login100-form-title {
@@ -740,6 +747,42 @@ iframe {
     height: 95vh;
 }
 
+.menu {
+    position: absolute;
+    font-size: 0.5em;
+    height: 100%;
+    width: 50%;
+    margin: -150px 0 0 -75px;
+    padding: 50px;
+    padding-top: 150px;
+    background: #bbc0ff;
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    /* to stop flickering of text in safari */
+    -webkit-transform-origin: 0% 0%;
+    transform-origin: 0% 0%;
+    -webkit-transform: translate(-100%, 0);
+    transform: translate(-100%, 0);
+    transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+.menu li {
+    padding: 10px 0;
+    font-size: 22px;
+}
+
+
+/*
+ * And let's slide it in from the left
+ */
+
+.menuToggle input:checked~ul {
+    -webkit-transform: none;
+    transform: none;
+}
+
 .login-center {
     padding-top: 20vh;
     padding-bottom: 20vh;
@@ -757,7 +800,7 @@ iframe {
  * prefixes.
  */
 
-#menuToggle {
+.menuToggle {
     display: block;
     position: relative;
     top: -10vh;
@@ -769,7 +812,7 @@ iframe {
     user-select: none;
 }
 
-#menuToggle input {
+.menuToggle input {
     display: block;
     width: 40px;
     height: 32px;
@@ -789,7 +832,7 @@ iframe {
  * Just a quick hamburger
  */
 
-#menuToggle span {
+.menuToggle span {
     display: block;
     width: 33px;
     height: 4px;
@@ -805,12 +848,12 @@ iframe {
     transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 }
 
-#menuToggle span:first-child {
+.menuToggle span:first-child {
     -webkit-transform-origin: 0% 0%;
     transform-origin: 0% 0%;
 }
 
-#menuToggle span:nth-last-child(2) {
+.menuToggle span:nth-last-child(2) {
     -webkit-transform-origin: 0% 100%;
     transform-origin: 0% 100%;
 }
@@ -821,7 +864,7 @@ iframe {
  * into a crossmark.
  */
 
-#menuToggle input:checked~span {
+.menuToggle input:checked~span {
     opacity: 1;
     -webkit-transform: rotate(45deg) translate(-2px, -1px);
     transform: rotate(45deg) translate(-2px, -1px);
@@ -833,7 +876,7 @@ iframe {
  * But let's hide the middle one.
  */
 
-#menuToggle input:checked~span:nth-last-child(3) {
+.menuToggle input:checked~span:nth-last-child(3) {
     opacity: 0;
     -webkit-transform: rotate(0deg) scale(0.2, 0.2);
     transform: rotate(0deg) scale(0.2, 0.2);
@@ -844,7 +887,7 @@ iframe {
  * Ohyeah and the last one should go the other direction
  */
 
-#menuToggle input:checked~span:nth-last-child(2) {
+.menuToggle input:checked~span:nth-last-child(2) {
     -webkit-transform: rotate(-45deg) translate(0, -1px);
     transform: rotate(-45deg) translate(0, -1px);
 }
@@ -854,39 +897,3 @@ iframe {
  * Make this absolute positioned
  * at the top left of the screen
  */
-
-#menu {
-    position: absolute;
-    font-size: 0.5em;
-    height: 97vh;
-    width: 50%;
-    margin: -150px 0 0 -75px;
-    padding: 50px;
-    padding-top: 150px;
-    background: #bbc0ff;
-    list-style-type: none;
-    -webkit-font-smoothing: antialiased;
-    /* to stop flickering of text in safari */
-    -webkit-transform-origin: 0% 0%;
-    transform-origin: 0% 0%;
-    -webkit-transform: translate(-100%, 0);
-    transform: translate(-100%, 0);
-    transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
-}
-
-#menu li {
-    padding: 10px 0;
-    font-size: 22px;
-}
-
-
-/*
- * And let's slide it in from the left
- */
-
-#menuToggle input:checked~ul {
-    -webkit-transform: none;
-    transform: none;
-}
