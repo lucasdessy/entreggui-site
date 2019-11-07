@@ -48,13 +48,19 @@ if (!isset($_GET['usuario'])) {
 </head>
 
 <body>
+    <?php
+    if (empty($_POST['CPF'])) {
+        $cpferro = "* campo necessário";
+        $existe_erro = TRUE;
+    }
+    ?>
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-l-15 p-r-15 p-t-25 p-b-10 scroll">
                 <span class="login100-form-title p-b-0">
                     Cadastre-se
                 </span>
-                <form method="POST" class="login100-form validate-form">
+                <form name="Cadastro" method="POST" class="login100-form validate-form" onsubmit="required()">
                     <div class="text-center w-full p-t-25
                      p-b-0">
                         <span class="txt2">
@@ -79,9 +85,11 @@ if (!isset($_GET['usuario'])) {
                         <input class="input100" type="text" name="CPF" placeholder="CPF" id="cpf">
                         <span class="focus-input100"></span>
                         <span clfass="symbol-input100"></span>
-                        <script type="text/javascript">
-                            $("#cpf").mask("999.999.999-99");
-                        </script>
+                        <span>
+                            <?php
+                            if (isset($cpferro)) echo $cpferro;
+                            ?>
+                        </span>
                     </div>
                     <div class="wrap-input100 m-b-16">
                         <input class="input100" type="email" name="email" placeholder="Email" id="email">
@@ -137,7 +145,6 @@ if (!isset($_GET['usuario'])) {
             </div>
         </div>
     </div>
-
     <?php
     if (isset($_POST['insert'])) {
         $nome     = $_POST['nome'];
