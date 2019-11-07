@@ -9,7 +9,6 @@ if (!isset($_GET['usuario'])) {
             </script>
         ';
 }
-$cpferro = FALSE;
 ?>
 <html lang="en">
 
