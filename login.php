@@ -52,7 +52,8 @@ include("conexao.php");
 
                     </div>
                     <div class="wrap-input100 m-b-16">
-                        <input class="input100" type="email" name="email" placeholder="Email" id="email">
+                        <!-- <input class="input100" type="email" name="email" placeholder="Email" id="email"> -->
+                        <input class="input100" name="email" placeholder="Email" id="email">
                         <span class="focus-input100"></span>
                         <span class="symbol-input100"></span>
                     </div>
