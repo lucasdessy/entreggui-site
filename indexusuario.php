@@ -75,7 +75,7 @@
                   break;
               }
               if (($serv_status == "2") or ($serv_status == "3") or ($serv_status == "4") or ($serv_status == "5")) {
-                $sql = "select user_nome, serv_nome, serv_descricao, serv_status, serv_entrega_origem, serv_entrega_destino, serv_entrega_distancia from servicos inner join veiculos
+                $sql = "select user_nome, serv_nome, serv_descricao, serv_status, serv_entrega_origem, serv_entrega_destino, serv_entrega_distancia, serv_codigo from servicos inner join veiculos
                   on veiculos.veic_codigo = servicos.veic_codigo inner join usuarios on usuarios.user_codigo = veiculos.user_codigo where ((usuarios.user_codigo = $logadoID) and (serv_status = $serv_status))";
               }
             }
@@ -126,6 +126,7 @@
               $serv_entrega_origem   = $fila['serv_entrega_origem'];
               $serv_entrega_destino   = $fila['serv_entrega_destino'];
               $serv_entrega_distancia   = $fila['serv_entrega_distancia'];
+              $serv_codigo   = $fila['serv_codigo'];              
               $i++;
               ?>
               <tr align="center">
@@ -135,7 +136,7 @@
                 <td><?php echo $serv_entrega_origem; ?></td>
                 <td><?php echo $serv_entrega_destino; ?></td>
                 <td><?php echo $serv_entrega_distancia; ?></td>
-                <td><a href="tables.php?alterar=<?php echo $id; ?>">Alterar</a></td>
+                <td><a href="tables.php?alterar=<?php echo $serv_codigo; ?>">Alterar</a></td>
               </tr>
             <?php } ?>
           </table>
@@ -146,6 +147,11 @@
         }
         ?>
         </table>
+        <span>
+          <a href="sairsessao.php">
+            Sair da sessão
+          </a>
+        </span>        
       </div>
     </div>
   </div>
