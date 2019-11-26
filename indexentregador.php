@@ -7,6 +7,13 @@
   $logadouser = $_SESSION['user'];
   $logadonome = $_SESSION['usernome'];
   $logadoID = $_SESSION['userid'];
+  if (!isset($_GET['select'])) {
+    echo '
+            <script>
+            window.location = "indexentregador.php?select=1&pesquisar=";    
+            </script>
+        ';
+}  
   ?>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,10 +82,10 @@
                   break;
               }
               if (($serv_status == "2") or ($serv_status == "3") or ($serv_status == "4") or ($serv_status == "5")) {
-                $sql = "select user_nome, serv_nome, serv_descricao, serv_status, serv_entrega_origem, serv_entrega_destino, serv_entrega_distancia, serv_codigo from servicos inner join veiculos
-                  on veiculos.veic_codigo = servicos.veic_codigo inner join usuarios on usuarios.user_codigo = veiculos.user_codigo where ((usuarios.user_codigo = $logadoID) and (serv_status = $serv_status))";
+                $sql = "select serv_codigo,user_nome, serv_nome, serv_descricao, serv_entrega_origem, serv_entrega_destino, serv_entrega_distancia, serv_status from servicos inner join usuarios on usuarios.user_codigo = servicos.user_codigo_contratante 
+                inner join veiculos on servicos.veic_codigo = veiculos.veic_codigo where ((veiculos.user_codigo = $logadoID) and (servicos.serv_status = $serv_status))";
               }
-              if($serv_status == "1"){
+              if ($serv_status == "1") {
                 $sql = "select serv_codigo,user_nome, serv_nome, serv_descricao, serv_entrega_origem, serv_entrega_destino, serv_entrega_distancia, serv_status from servicos inner join usuarios on usuarios.user_codigo = servicos.user_codigo_contratante where  (serv_status = 1 )";
               }
             }
@@ -110,9 +117,13 @@
                 <th class="th-sm">Destino
                 </th>
                 <th class="th-sm">Distancia
-                </th>
-                <th class="th-sm">Atualizar
-                </th>
+                  <?php
+                  if ($serv_status != "5") {
+                    echo '</th>
+                    <th class="th-sm">Atualizar
+                    </th>';
+                  }
+                  ?>
               </tr>
             </thead>
             <tbody>
@@ -129,7 +140,7 @@
               $serv_entrega_origem   = $fila['serv_entrega_origem'];
               $serv_entrega_destino   = $fila['serv_entrega_destino'];
               $serv_entrega_distancia   = $fila['serv_entrega_distancia'];
-              $serv_codigo   = $fila['serv_codigo'];              
+              $serv_codigo   = $fila['serv_codigo'];
               $i++;
               ?>
               <tr align="center">
@@ -139,7 +150,12 @@
                 <td><?php echo $serv_entrega_origem; ?></td>
                 <td><?php echo $serv_entrega_destino; ?></td>
                 <td><?php echo $serv_entrega_distancia; ?></td>
-                <td><a href="alterarentregador.php?id=<?php echo $serv_codigo; ?>&status= <?php echo $serv_status; ?>">Alterar</a></td>
+                <?php
+                  if ($serv_status != "5") {
+                    echo '<td><a href="alterarentregador.php?id='.$serv_codigo.'&status='.$serv_status.'">Alterar</a></td>';
+                  }
+                  ?>
+
               </tr>
             <?php } ?>
           </table>
