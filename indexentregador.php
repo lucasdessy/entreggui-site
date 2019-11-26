@@ -79,7 +79,7 @@
                   on veiculos.veic_codigo = servicos.veic_codigo inner join usuarios on usuarios.user_codigo = veiculos.user_codigo where ((usuarios.user_codigo = $logadoID) and (serv_status = $serv_status))";
               }
               if($serv_status == "1"){
-                $sql = "select serv_codigo,user_nome, serv_nome, serv_descricao, serv_entrega_origem, serv_entrega_destino, serv_entrega_distancia, serv_status from servicos inner join veiculos on servicos.veic_codigo = veiculos.veic_codigo inner join usuarios on veiculos.user_codigo = usuarios.user_codigo where (serv_status = 1 )";
+                $sql = "select serv_codigo,user_nome, serv_nome, serv_descricao, serv_entrega_origem, serv_entrega_destino, serv_entrega_distancia, serv_status from servicos inner join usuarios on usuarios.user_codigo = servicos.user_codigo_contratante where  (serv_status = 1 )";
               }
             }
             ?>
