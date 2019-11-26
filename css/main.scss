@@ -906,9 +906,10 @@ iframe {
 }
 
 .divResult {
-  -webkit-box-shadow: 25px 24px 24px -13px rgba(0, 0, 0, 0.22);
-  -moz-box-shadow: 25px 24px 24px -13px rgba(0, 0, 0, 0.22);
-  box-shadow: 25px 24px 24px -13px rgba(0, 0, 0, 0.22);
-  border: 2px solid #000000;
-  border-radius: 3px;
+  // -webkit-box-shadow: 25px 24px 24px -13px rgba(0, 0, 0, 0.22);
+  // -moz-box-shadow: 25px 24px 24px -13px rgba(0, 0, 0, 0.22);
+  // box-shadow: 25px 24px 24px -13px rgba(0, 0, 0, 0.22);
+  // border: 2px solid #c9c9c9;
+  // border-radius: 3px;
+  padding: 10px 10px 10px 10px ;
 }
