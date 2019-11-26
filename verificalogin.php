@@ -15,6 +15,9 @@ if (isset($_POST['login'])) {
     $executarusernome = sqlsrv_query($con, $sql);
     $usernome = implode("", sqlsrv_fetch_array($executarusernome, SQLSRV_FETCH_ASSOC));
 
+    $sql = "select user_tipo from USUARIOS where user_codigo = '$userid'";
+    $executarusertipo = sqlsrv_query($con, $sql);
+    $usertipo = implode("", sqlsrv_fetch_array($executarusertipo, SQLSRV_FETCH_ASSOC));
 
     if ($userid != '') {
         header('location:index.php');
@@ -22,6 +25,7 @@ if (isset($_POST['login'])) {
         $_SESSION['senha'] = $senha;
         $_SESSION['userid'] = $userid;
         $_SESSION['usernome'] = $usernome;
+        $_SESSION['usertipo'] = $usertipo;
     } else {
         unset($_SESSION['user']);
         unset($_SESSION['senha']);
